@@ -1,0 +1,26 @@
+# ---- Gradle / Android ----
+.gradle/
+build/
+app/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# ---- 签名材料（绝不入库）----
+*.jks
+*.keystore
+keystore.properties
+
+# ---- IDE ----
+.idea/
+*.iml
+.DS_Store
+
+# ---- 早期网页版残留（本项目是纯原生，不走 WebView）----
+css/
+js/
+
+# ---- 历史版本包不入库，只保留当前版本 ----
+dist/*.apk
+!dist/墨阅-MoYue-v1.6.apk

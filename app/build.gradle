@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+}
+
+// 签名配置不写死在仓库里。
+// 需要出正式包时，在本机 local.properties 里加四行（这个文件已被 .gitignore 排除）：
+//   RELEASE_STORE_FILE=../moyue.jks
+//   RELEASE_STORE_PASSWORD=******
+//   RELEASE_KEY_ALIAS=moyue
+//   RELEASE_KEY_PASSWORD=******
+// 没有这些配置时也能正常构建，release 包会退化成未签名（可用于本地调试）。
+def keystoreProps = new Properties()
+def keystorePropsFile = rootProject.file("local.properties")
+if (keystorePropsFile.exists()) {
+    keystorePropsFile.withInputStream { keystoreProps.load(it) }
+}
+def hasSigning = keystoreProps.getProperty("RELEASE_STORE_FILE") != null
+
+android {
+    namespace 'com.moyue.reader'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.moyue.reader"
+        minSdk 24
+        targetSdk 34
+        versionCode 8
+        versionName "1.6"
+    }
+
+    if (hasSigning) {
+        signingConfigs {
+            release {
+                storeFile file(keystoreProps.getProperty("RELEASE_STORE_FILE"))
+                storePassword keystoreProps.getProperty("RELEASE_STORE_PASSWORD")
+                keyAlias keystoreProps.getProperty("RELEASE_KEY_ALIAS")
+                keyPassword keystoreProps.getProperty("RELEASE_KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (hasSigning) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+}

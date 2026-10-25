@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">墨阅</string>
+    <string name="library_title">墨阅</string>
+    <string name="import_book">导入电子书</string>
+    <string name="empty_title">书架还空着</string>
+</resources>

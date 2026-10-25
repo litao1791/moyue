@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="4dp">
+
+    <com.moyue.reader.ui.CoverFrame
+        android:id="@+id/cover_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/cover_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@null" />
+
+        <LinearLayout
+            android:id="@+id/cover_fallback"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="15dp"
+            android:paddingEnd="11dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="14dp"
+            android:background="@drawable/bg_cover_fallback"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/cf_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textColor="#F7EFE2"
+                android:textSize="14sp"
+                android:maxLines="4"
+                android:ellipsize="end"
+                android:lineSpacingExtra="2dp"
+                android:shadowColor="#33000000"
+                android:shadowDx="0"
+                android:shadowDy="1"
+                android:shadowRadius="3" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="10dp"
+                android:background="#80F7EFE2" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/cf_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#B3F7EFE2"
+                android:textSize="10sp"
+                android:singleLine="true"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cover_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="7dp"
+            android:background="@drawable/bg_badge"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:paddingTop="2.5dp"
+            android:paddingBottom="2.5dp"
+            android:textColor="#FFFFFF"
+            android:textSize="9.5sp"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="9dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_spine" />
+    </com.moyue.reader.ui.CoverFrame>
+
+    <TextView
+        android:id="@+id/book_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:textColor="#241F1A"
+        android:textSize="12.5sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:lineSpacingExtra="1.5dp" />
+
+    <TextView
+        android:id="@+id/book_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:textColor="#9C9184"
+        android:textSize="11sp"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    <ProgressBar
+        android:id="@+id/book_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2.5dp"
+        android:layout_marginTop="7dp"
+        android:max="1000"
+        android:progressDrawable="@drawable/progress_book" />
+</LinearLayout>

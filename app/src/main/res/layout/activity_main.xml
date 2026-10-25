@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F2EA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 顶部标题栏 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|bottom"
+            android:paddingStart="22dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="墨阅"
+                    android:textColor="#241F1A"
+                    android:textSize="28sp"
+                    android:fontFamily="serif"
+                    android:letterSpacing="0.06"
+                    android:includeFontPadding="false" />
+
+                <TextView
+                    android:id="@+id/lib_sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="书架空空如也"
+                    android:textColor="#9C9184"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btn_sort"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_sort"
+                android:contentDescription="排序"
+                android:tint="#6B6055" />
+
+            <ImageButton
+                android:id="@+id/btn_import"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_plus"
+                android:contentDescription="导入"
+                android:tint="#B87333" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <GridView
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="auto_fit"
+                android:columnWidth="112dp"
+                android:horizontalSpacing="18dp"
+                android:verticalSpacing="26dp"
+                android:paddingStart="22dp"
+                android:paddingEnd="22dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="96dp"
+                android:clipToPadding="false"
+                android:scrollbars="none"
+                android:listSelector="@android:color/transparent" />
+
+            <LinearLayout
+                android:id="@+id/empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_book_empty"
+                    android:tint="#C4B7A5"
+                    android:contentDescription="@null" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="书架还空着"
+                    android:textColor="#6B6055"
+                    android:textSize="17sp"
+                    android:fontFamily="serif"
+                    android:letterSpacing="0.04" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="把 EPUB 电子书导入进来，\n就能在这里安静地读了"
+                    android:textColor="#9C9184"
+                    android:textSize="12.5sp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp" />
+
+                <TextView
+                    android:id="@+id/btn_import_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/bg_btn_primary"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp"
+                    android:text="导入电子书"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13.5sp"
+                    android:letterSpacing="0.03" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/fab"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_fab"
+        android:src="@drawable/ic_plus"
+        android:tint="#FFFFFF"
+        android:contentDescription="导入电子书" />
+
+    <TextView
+        android:id="@+id/toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/bg_toast"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:visibility="gone" />
+</FrameLayout>
